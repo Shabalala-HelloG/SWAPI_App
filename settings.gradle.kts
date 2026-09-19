@@ -1,0 +1,1 @@
+rootProject.name = "SWAPI_App"
