@@ -3,46 +3,23 @@ package models;
 import java.util.List;
 
 public class Vehicles {
-    /*
-    {
-  "name": "Sand Crawler",
-  "model": "Digger Crawler",
-  "manufacturer": "Corellia Mining Corporation",
-  "cost_in_credits": "150000",
-  "length": "36.8 ",
-  "max_atmosphering_speed": "30",
-  "crew": "46",
-  "passengers": "30",
-  "cargo_capacity": "50000",
-  "consumables": "2 months",
-  "vehicle_class": "wheeled",
-  "pilots": [],
-  "films": [
-    "https://swapi.dev/api/films/1/",
-    "https://swapi.dev/api/films/5/"
-  ],
-  "created": "2014-12-10T15:36:25.724000Z",
-  "edited": "2014-12-20T21:30:21.661000Z",
-  "url": "https://swapi.dev/api/vehicles/4/"
-}
-     */
 
-    public String name;
-    public String model;
-    public String manufacturer;
-    public String cost_in_credits;
-    public String length;
-    public String max_atmosphering_speed;
-    public String crew;
-    public String passengers;
-    public String cargo_capacity;
-    public String consumables;
-    public String vehicles_class;
-    public List<String> pilots;
-    public List<String> films;
-    public String created;
-    public String edited;
-    public  String url;
+    private String name;
+    private String model;
+    private String manufacturer;
+    private String cost_in_credits;
+    private String length;
+    private String max_atmosphering_speed;
+    private String crew;
+    private String passengers;
+    private String cargo_capacity;
+    private String consumables;
+    private String vehicles_class;
+    private List<String> pilots;
+    private List<String> films;
+    private String created;
+    private String edited;
+    private  String url;
 
     public Vehicles(String name,
                     String model,

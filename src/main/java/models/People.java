@@ -4,22 +4,22 @@ import java.util.List;
 
 public class People {
 
-    public String name;
-    public String height;
-    public String mass;
-    public String hair_color;
-    public String skin_color;
-    public String eye_color;
-    public String birth_year;
-    public String gender;
-    public String homeworld;
-    public List<String> films;
-    public List<String> species;
-    public List<String> vehicles;
-    public  List<String> starships;
-    public String created;
-    public String edited;
-    public  String url;
+    private String name;
+    private String height;
+    private String mass;
+    private String hair_color;
+    private String skin_color;
+    private String eye_color;
+    private String birth_year;
+    private String gender;
+    private String homeworld;
+    private List<String> films;
+    private List<String> species;
+    private List<String> vehicles;
+    private  List<String> starships;
+    private String created;
+    private String edited;
+    private  String url;
 
     public People(String name,
                   String height,

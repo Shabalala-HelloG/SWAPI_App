@@ -3,20 +3,21 @@ package models;
 import java.util.List;
 
 public class Species {
-    public String name;
-    public String classification;
-    public String designation;
-    public String skin_color;
-    public String hair_color;
-    public String eye_color;
-    public String average_lifespan;
-    public String homeworld;
-    public String language;
-    public List<String> people;
-    public List<String> films;
-    public String created;
-    public String edited;
-    public  String url;
+
+    private String name;
+    private String classification;
+    private String designation;
+    private String skin_color;
+    private String hair_color;
+    private String eye_color;
+    private String average_lifespan;
+    private String homeworld;
+    private String language;
+    private List<String> people;
+    private List<String> films;
+    private String created;
+    private String edited;
+    private  String url;
 
     public Species(String name,
                    String classification,

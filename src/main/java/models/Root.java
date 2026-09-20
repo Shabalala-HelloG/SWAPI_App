@@ -2,12 +2,12 @@ package models;
 
 public class Root {
 
-    public String films;
-    public String people;
-    public String planets;
-    public String species;
-    public String starships;
-    public String vehicles;
+    private String films;
+    private String people;
+    private String planets;
+    private String species;
+    private String starships;
+    private String vehicles;
 
 //    Constructors
     public Root(String films,

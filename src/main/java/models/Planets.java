@@ -3,20 +3,21 @@ package models;
 import java.util.List;
 
 public class Planets {
-    public String name;
-    public String rotation_period;
-    public String orbital_period;
-    public String diameter;
-    public String climate;
-    public String gravity;
-    public String terrain;
-    public String surface_water;
-    public String population;
-    public List<String> residents;
-    public  List<String> films;
-    public String created;
-    public String edited;
-    public  String url;
+
+    private String name;
+    private String rotation_period;
+    private String orbital_period;
+    private String diameter;
+    private String climate;
+    private String gravity;
+    private String terrain;
+    private String surface_water;
+    private String population;
+    private List<String> residents;
+    private  List<String> films;
+    private String created;
+    private String edited;
+    private  String url;
 
     public Planets(String name,
                    String rotation_period,

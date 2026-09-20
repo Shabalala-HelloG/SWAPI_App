@@ -4,10 +4,10 @@ import java.util.List;
 
 public class ApiResponse<T> {
 
-    public String count;
-    public String next;
-    public String previous;
-    public List<T> results;
+    private String count;
+    private String next;
+    private String previous;
+    private List<T> results;
 
     public ApiResponse(String count,
                        String next,

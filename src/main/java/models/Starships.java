@@ -3,48 +3,25 @@ package models;
 import java.util.List;
 
 public class Starships {
-    /*
-         "name": "CR90 corvette",
-      "model": "CR90 corvette",
-      "manufacturer": "Corellian Engineering Corporation",
-      "cost_in_credits": "3500000",
-      "length": "150",
-      "max_atmosphering_speed": "950",
-      "crew": "30-165",
-      "passengers": "600",
-      "cargo_capacity": "3000000",
-      "consumables": "1 year",
-      "hyperdrive_rating": "2.0",
-      "MGLT": "60",
-      "starship_class": "corvette",
-      "pilots": [],
-      "films": [
-        "https://swapi.dev/api/films/1/",
-        "https://swapi.dev/api/films/3/",
-        "https://swapi.dev/api/films/6/"
-      ],
-      "created": "2014-12-10T14:20:33.369000Z",
-      "edited": "2014-12-20T21:23:49.867000Z",
-      "url": "https://swapi.dev/api/starships/2/"
-     */
-    public String name;
-    public String model;
-    public String manufacturer;
-    public String cost_in_credits;
-    public String length;
-    public String max_atmosphering_speed;
-    public String crew;
-    public String passengers;
-    public String cargo_capacity;
-    public String consumables;
-    public String hyperdrive_rating;
-    public String MGLT;
-    public String starship_class;
-    public List<String> pilots;
-    public List<String> films;
-    public String created;
-    public String edited;
-    public  String url;
+
+    private String name;
+    private String model;
+    private String manufacturer;
+    private String cost_in_credits;
+    private String length;
+    private String max_atmosphering_speed;
+    private String crew;
+    private String passengers;
+    private String cargo_capacity;
+    private String consumables;
+    private String hyperdrive_rating;
+    private String MGLT;
+    private String starship_class;
+    private List<String> pilots;
+    private List<String> films;
+    private String created;
+    private String edited;
+    private  String url;
 
     public Starships(String name,
                      String model,

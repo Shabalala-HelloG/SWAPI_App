@@ -3,20 +3,21 @@ package models;
 import java.util.List;
 
 public class Films {
-    public String title;
-    public int episode_id;
-    public String opening_crawl;
-    public String director;
-    public String producer;
-    public  String release_date;
-    public List<String> characters;
-    public List<String> planets;
-    public List<String> starships;
-    public List<String> vehicles;
-    public List<String> species;
-    public String created;
-    public String edited;
-    public  String url;
+
+    private String title;
+    private int episode_id;
+    private String opening_crawl;
+    private String director;
+    private String producer;
+    private  String release_date;
+    private List<String> characters;
+    private List<String> planets;
+    private List<String> starships;
+    private List<String> vehicles;
+    private List<String> species;
+    private String created;
+    private String edited;
+    private  String url;
 
 
     public Films(String title,

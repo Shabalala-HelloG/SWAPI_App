@@ -1,7 +1,8 @@
 package models;
 
 public class ApiBadResponse {
-    public String detail;
+    
+    private String detail;
 
 
     public ApiBadResponse(String detail) {
