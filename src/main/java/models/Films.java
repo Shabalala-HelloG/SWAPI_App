@@ -19,37 +19,9 @@ public class Films {
     private String edited;
     private  String url;
 
-
-    public Films(String title,
-                 int episode_id,
-                 String opening_crawl,
-                 String producer,
-                 String director,
-                 String release_date,
-                 List<String> characters,
-                 List<String> planets,
-                 List<String> starships,
-                 List<String> vehicles,
-                 List<String> species,
-                 String created,
-                 String edited,
-                 String url
-    ) {
-        this.title = title;
-        this.episode_id = episode_id;
-        this.opening_crawl = opening_crawl;
-        this.producer = producer;
-        this.director = director;
-        this.release_date = release_date;
-        this.characters = characters;
-        this.planets = planets;
-        this.starships = starships;
-        this.vehicles = vehicles;
-        this.species = species;
-        this.created = created;
-        this.edited = edited;
-        this.url = url;
+    public Films() {
     }
+
 
     public String getTitle() {
         return title;
@@ -105,5 +77,16 @@ public class Films {
 
     public String getUrl() {
         return url;
+    }
+
+    @Override
+    public String toString() {
+        return "Films{" +
+                "title='" + title + '\'' +
+                ", opening_crawl='" + opening_crawl + '\'' +
+                ", director='" + director + '\'' +
+                ", producer='" + producer + '\'' +
+                ", release_date='" + release_date + '\'' +
+                '}';
     }
 }

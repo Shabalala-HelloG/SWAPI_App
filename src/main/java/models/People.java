@@ -21,37 +21,9 @@ public class People {
     private String edited;
     private  String url;
 
-    public People(String name,
-                  String height,
-                  String mass,
-                  String hair_color,
-                  String skin_color,
-                  String eye_color,
-                  String birth_year,
-                  String gender,
-                  String homeworld,
-                  List<String> films,
-                  List<String> species,
-                  List<String> vehicles,
-                  List<String> starships,
-                  String created,
-                  String edited
-    ) {
-        this.name = name;
-        this.height = height;
-        this.mass = mass;
-        this.hair_color = hair_color;
-        this.skin_color = skin_color;
-        this.eye_color = eye_color;
-        this.birth_year = birth_year;
-        this.gender = gender;
-        this.homeworld = homeworld;
-        this.films = films;
-        this.species = species;
-        this.vehicles = vehicles;
-        this.starships = starships;
-        this.created = created;
-        this.edited = edited;
+    //for me to use Jackson I should create a no argument constructor
+    //    Constructors
+    public People() {
     }
 
     public String getName() {
@@ -116,5 +88,21 @@ public class People {
 
     public String getUrl() {
         return url;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "People{" +
+                "name='" + name + '\'' +
+                ", height='" + height + '\'' +
+                ", mass='" + mass + '\'' +
+                ", hair_color='" + hair_color + '\'' +
+                ", skin_color='" + skin_color + '\'' +
+                ", eye_color='" + eye_color + '\'' +
+                ", birth_year='" + birth_year + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
     }
 }

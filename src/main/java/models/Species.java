@@ -19,35 +19,7 @@ public class Species {
     private String edited;
     private  String url;
 
-    public Species(String name,
-                   String classification,
-                   String designation,
-                   String skin_color,
-                   String hair_color,
-                   String eye_color,
-                   String average_lifespan,
-                   String homeworld,
-                   String language,
-                   List<String> people,
-                   List<String> films,
-                   String created,
-                   String edited,
-                   String url
-    ) {
-        this.name = name;
-        this.classification = classification;
-        this.designation = designation;
-        this.skin_color = skin_color;
-        this.hair_color = hair_color;
-        this.eye_color = eye_color;
-        this.average_lifespan = average_lifespan;
-        this.homeworld = homeworld;
-        this.language = language;
-        this.people = people;
-        this.films = films;
-        this.created = created;
-        this.edited = edited;
-        this.url = url;
+    public Species() {
     }
 
     public String getName() {
@@ -104,5 +76,20 @@ public class Species {
 
     public String getUrl() {
         return url;
+    }
+
+    @Override
+    public String toString() {
+        return "Species{" +
+                "name='" + name + '\'' +
+                ", classification='" + classification + '\'' +
+                ", designation='" + designation + '\'' +
+                ", skin_color='" + skin_color + '\'' +
+                ", hair_color='" + hair_color + '\'' +
+                ", eye_color='" + eye_color + '\'' +
+                ", average_lifespan='" + average_lifespan + '\'' +
+                ", homeworld='" + homeworld + '\'' +
+                ", language='" + language + '\'' +
+                '}';
     }
 }

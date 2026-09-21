@@ -10,21 +10,10 @@ public class Root {
     private String vehicles;
 
 //    Constructors
-    public Root(String films,
-                String people,
-                String planets,
-                String species,
-                String starships,
-                String vehicles
-    ){
-        this.films = films;
-        this.people = people;
-        this.planets = planets;
-        this.species = species;
-        this.starships = starships;
-        this.vehicles = vehicles;
+    public Root() {
     }
-// Getters
+
+    // Getters
     public String getFilms() {
         return films;
     }
@@ -47,5 +36,17 @@ public class Root {
 
     public String getVehicles() {
         return vehicles;
+    }
+
+    @Override
+    public String toString() {
+        return "Root{" +
+                "films='" + films + '\'' +
+                ", people='" + people + '\'' +
+                ", planets='" + planets + '\'' +
+                ", species='" + species + '\'' +
+                ", starships='" + starships + '\'' +
+                ", vehicles='" + vehicles + '\'' +
+                '}';
     }
 }

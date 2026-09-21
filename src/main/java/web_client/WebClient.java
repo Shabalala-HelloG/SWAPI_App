@@ -13,9 +13,8 @@ public class WebClient {
     public Response getResponse(String resource) throws IOException {
         //yet to handle exception
 
-        String baseUrl = "https://swapi.dev/api/";
         Request request= new Request.Builder()
-                .url(baseUrl+resource+"/?format=json")
+                .url(resource+"/?format=json")
                 .get()
                 .build();
         return client.newCall(request).execute();
