@@ -14,7 +14,7 @@ public class WebClient {
         //yet to handle exception
 
         Request request= new Request.Builder()
-                .url(resource+"/?format=json")
+                .url(resource+"?format=json")
                 .get()
                 .build();
         return client.newCall(request).execute();

@@ -78,18 +78,5 @@ public class Planets {
         return population;
     }
 
-    @Override
-    public String toString() {
-        return "Planets{" +
-                "name='" + name + '\'' +
-                ", rotation_period='" + rotation_period + '\'' +
-                ", orbital_period='" + orbital_period + '\'' +
-                ", diameter='" + diameter + '\'' +
-                ", climate='" + climate + '\'' +
-                ", gravity='" + gravity + '\'' +
-                ", terrain='" + terrain + '\'' +
-                ", surface_water='" + surface_water + '\'' +
-                ", population='" + population + '\'' +
-                '}';
-    }
+
 }

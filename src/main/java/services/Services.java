@@ -24,7 +24,6 @@ public class Services<T> {
                 return mapper.readValue(response.body().string(), type);
             }finally {
                 response.close();
-                System.out.println("response is closed");
             }
 
         } catch (IOException e) {

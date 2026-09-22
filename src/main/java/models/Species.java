@@ -7,9 +7,10 @@ public class Species {
     private String name;
     private String classification;
     private String designation;
-    private String skin_color;
-    private String hair_color;
-    private String eye_color;
+    private String average_height;
+    private String skin_colors;
+    private String hair_colors;
+    private String eye_colors;
     private String average_lifespan;
     private String homeworld;
     private String language;
@@ -34,16 +35,20 @@ public class Species {
         return designation;
     }
 
-    public String getSkin_color() {
-        return skin_color;
+    public String getAverage_height() {
+        return average_height;
     }
 
-    public String getHair_color() {
-        return hair_color;
+    public String getSkin_colors() {
+        return skin_colors;
     }
 
-    public String getEye_color() {
-        return eye_color;
+    public String getHair_colors() {
+        return hair_colors;
+    }
+
+    public String getEye_colors() {
+        return eye_colors;
     }
 
     public String getAverage_lifespan() {
@@ -78,18 +83,4 @@ public class Species {
         return url;
     }
 
-    @Override
-    public String toString() {
-        return "Species{" +
-                "name='" + name + '\'' +
-                ", classification='" + classification + '\'' +
-                ", designation='" + designation + '\'' +
-                ", skin_color='" + skin_color + '\'' +
-                ", hair_color='" + hair_color + '\'' +
-                ", eye_color='" + eye_color + '\'' +
-                ", average_lifespan='" + average_lifespan + '\'' +
-                ", homeworld='" + homeworld + '\'' +
-                ", language='" + language + '\'' +
-                '}';
     }
-}

@@ -79,14 +79,4 @@ public class Films {
         return url;
     }
 
-    @Override
-    public String toString() {
-        return "Films{" +
-                "title='" + title + '\'' +
-                ", opening_crawl='" + opening_crawl + '\'' +
-                ", director='" + director + '\'' +
-                ", producer='" + producer + '\'' +
-                ", release_date='" + release_date + '\'' +
-                '}';
-    }
 }

@@ -38,15 +38,4 @@ public class Root {
         return vehicles;
     }
 
-    @Override
-    public String toString() {
-        return "Root{" +
-                "films='" + films + '\'' +
-                ", people='" + people + '\'' +
-                ", planets='" + planets + '\'' +
-                ", species='" + species + '\'' +
-                ", starships='" + starships + '\'' +
-                ", vehicles='" + vehicles + '\'' +
-                '}';
     }
-}

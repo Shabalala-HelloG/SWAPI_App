@@ -14,7 +14,7 @@ public class Vehicles {
     private String passengers;
     private String cargo_capacity;
     private String consumables;
-    private String vehicles_class;
+    private String vehicle_class;
     private List<String> pilots;
     private List<String> films;
     private String created;
@@ -64,8 +64,8 @@ public class Vehicles {
         return consumables;
     }
 
-    public String getVehicles_class() {
-        return vehicles_class;
+    public String getVehicle_class() {
+        return vehicle_class;
     }
 
     public List<String> getPilots() {
@@ -88,20 +88,4 @@ public class Vehicles {
         return url;
     }
 
-    @Override
-    public String toString() {
-        return "Vehicles{" +
-                "name='" + name + '\'' +
-                ", model='" + model + '\'' +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", cost_in_credits='" + cost_in_credits + '\'' +
-                ", length='" + length + '\'' +
-                ", max_atmosphering_speed='" + max_atmosphering_speed + '\'' +
-                ", crew='" + crew + '\'' +
-                ", passengers='" + passengers + '\'' +
-                ", cargo_capacity='" + cargo_capacity + '\'' +
-                ", consumables='" + consumables + '\'' +
-                ", vehicles_class='" + vehicles_class + '\'' +
-                '}';
-    }
 }

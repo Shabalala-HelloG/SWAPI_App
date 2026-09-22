@@ -12,17 +12,6 @@ public class Response<T> {
     public Response() {
     }
 
-    public Response(String count,
-                    String next,
-                    String previous,
-                    List<T> results
-    ) {
-        this.count = count;
-        this.next = next;
-        this.previous = previous;
-        this.results = results;
-    }
-
     public String getCount() {
         return count;
     }

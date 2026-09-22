@@ -1,5 +1,7 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Starships {
@@ -15,7 +17,8 @@ public class Starships {
     private String cargo_capacity;
     private String consumables;
     private String hyperdrive_rating;
-    private String MGLT;
+    @JsonProperty("MGLT")
+    private String mglt;
     private String starship_class;
     private List<String> pilots;
     private List<String> films;
@@ -70,8 +73,8 @@ public class Starships {
         return hyperdrive_rating;
     }
 
-    public String getMGLT() {
-        return MGLT;
+    public String getMglt() {
+        return mglt;
     }
 
     public String getStarship_class() {
@@ -98,21 +101,5 @@ public class Starships {
         return url;
     }
 
-    @Override
-    public String toString() {
-        return "Starships{" +
-                "name='" + name + '\'' +
-                ", model='" + model + '\'' +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", cost_in_credits='" + cost_in_credits + '\'' +
-                ", length='" + length + '\'' +
-                ", max_atmosphering_speed='" + max_atmosphering_speed + '\'' +
-                ", crew='" + crew + '\'' +
-                ", passengers='" + passengers + '\'' +
-                ", cargo_capacity='" + cargo_capacity + '\'' +
-                ", consumables='" + consumables + '\'' +
-                ", hyperdrive_rating='" + hyperdrive_rating + '\'' +
-                ", MGLT='" + MGLT + '\'' +
-                '}';
-    }
+
 }
