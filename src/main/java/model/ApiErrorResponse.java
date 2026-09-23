@@ -1,9 +1,9 @@
-package models.api;
+package model;
 
-public class BadResponse {
+public class ApiErrorResponse {
     
     private String detail;
-    public BadResponse() {}
+    public ApiErrorResponse() {}
     public String getDetail() {
         return detail;
     }

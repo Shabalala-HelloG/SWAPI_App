@@ -1,15 +1,15 @@
-package models.api;
+package model;
 
 import java.util.List;
 
-public class Response<T> {
+public class ApiResponse<T> {
 
     private String count;
     private String next;
     private String previous;
     private List<T> results;
 
-    public Response() {
+    public ApiResponse() {
     }
 
     public String getCount() {

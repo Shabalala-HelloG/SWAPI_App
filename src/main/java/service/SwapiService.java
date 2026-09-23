@@ -1,18 +1,18 @@
-package services;
+package service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.Response;
-import web_client.WebClient;
+import client.SwapiClient;
 
 import java.io.IOException;
 
-public class Services<T> {
+public class SwapiService<T> {
     private final ObjectMapper mapper = new ObjectMapper();
 
     public T getServices(String resource, TypeReference<T> type) {
         try {
-            Response response= new WebClient().getResponse(resource);
+            Response response= new SwapiClient().getResponse(resource);
 
             try (response) {
                 if (!response.isSuccessful()) {
