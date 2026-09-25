@@ -2,36 +2,88 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
+import resource.ResourceFetcher;
 
+
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Species implements Model {
 
     @JsonProperty("name")
     private String name;
+
+    @JsonProperty("classification")
     private String classification;
+
+    @JsonProperty("designation")
     private String designation;
+
+    @JsonProperty("average_height")
     private String average_height;
+
+    @JsonProperty("skin_colors")
     private String skin_colors;
+
+    @JsonProperty("hair_colors")
     private String hair_colors;
+
+    @JsonProperty("eye_colors")
     private String eye_colors;
+
+    @JsonProperty("average_lifespan")
     private String average_lifespan;
+
+    @JsonProperty("homeworld")
     private String homeworld;
+
+    @JsonProperty("language")
     private String language;
+
+    @JsonProperty("people")
     private List<String> people;
+
+    @JsonProperty("films")
     private List<String> films;
+
+    @JsonProperty("created")
     private String created;
+
+    @JsonProperty("edited")
     private String edited;
-    private  String url;
+
+    @JsonProperty("url")
+    private String url;
 
     public Species() {
     }
 
-
     @Override
     public String displayName() {
+        return name;
+    }
 
-        return "Name: "+name;
+    @Override
+    public Map<String, String> displayDetails() {
+        Map<String, String> details = new LinkedHashMap<>();
+        details.put("Name", name);
+        details.put("Classification", classification);
+        details.put("Designation", designation);
+        details.put("Average Height", average_height);
+        details.put("Skin Colors", skin_colors);
+        details.put("Hair Colors", hair_colors);
+        details.put("Eye Colors", eye_colors);
+        details.put("Average Lifespan", average_lifespan);
+        details.put("Language", language);
+        details.put("Homeworld",
+                homeworld != null ? new ResourceFetcher<Planets>().getAResource(homeworld,
+                        new TypeReference<Planets>() {
+                        }).displayName() : "unknown"
+        );
+
+        return details;
     }
 }

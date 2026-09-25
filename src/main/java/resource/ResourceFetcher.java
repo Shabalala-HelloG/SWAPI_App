@@ -1,4 +1,4 @@
-package presentation;
+package resource;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import model.ApiResponse;
@@ -6,7 +6,9 @@ import service.SwapiService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResourcePagination<T> {
+public class ResourceFetcher<T> {
+
+    //this function is used to traverse the ApiResponse- it returns a List of all the resources in all pages.
 
     public List<List<T>> getAll(String resource, TypeReference<ApiResponse<T>> typeReference){
         List<List<T>> allPeopleL= new ArrayList<>();
@@ -32,7 +34,7 @@ public class ResourcePagination<T> {
 
     }
     //keeping it for Reference or incase I need it later
-//    public T getAResource(String resource, int id,TypeReference<T> typeReference){
-//        return new SwapiService<T>().getServices(resource + id+"?format=json", typeReference);
-//    }
+    public T getAResource(String resource,TypeReference<T> typeReference){
+        return new SwapiService<T>().getServices(resource +"?format=json", typeReference);
+    }
 }

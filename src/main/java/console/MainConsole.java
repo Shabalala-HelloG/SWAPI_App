@@ -123,7 +123,7 @@ public class MainConsole {
                     System.exit(0);
                 default:
                     System.out.println("\n==========INVALID INPUT==========");
-                    throw new IllegalStateException("Unexpected value: " + choice);
+                    break;
             }
         }
 
