@@ -1,0 +1,28 @@
+# Gradle
+.gradle/
+
+# IntelliJ IDEA
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Source code
+src/
+
+# Gradle wrapper
+gradle/
+gradlew
+gradlew.bat
+
+# Gradle build output that Docker does not need
+build/classes/
+build/generated/
+build/tmp/
+
+# Keep only the Shadow JAR
+build/*
+!build/libs/
+build/libs/*
+!build/libs/SWAPI_App-1.0-all.jar
