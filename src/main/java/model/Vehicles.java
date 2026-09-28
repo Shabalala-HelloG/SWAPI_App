@@ -2,6 +2,8 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
+import presentation.ResourcePrinter;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -80,6 +82,17 @@ public class Vehicles implements Model {
         details.put("Cargo Capacity", cargo_capacity);
         details.put("Consumables", consumables);
         details.put("Vehicle Class", vehicle_class);
+
+        details.put("Pilots",!pilots.isEmpty()?
+                new ResourcePrinter().<People>getFromList(pilots,
+                        new TypeReference<People>() {
+                        }):"unknown"
+        );
+
+        details.put("Films",!films.isEmpty()?
+                new ResourcePrinter().<Films>getFromList(films, new TypeReference<Films>() {
+                })
+                :"unknown");
 
         return  details;
     }

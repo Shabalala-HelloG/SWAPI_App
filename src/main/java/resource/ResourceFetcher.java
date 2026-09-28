@@ -2,6 +2,7 @@ package resource;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import model.ApiResponse;
+import model.Model;
 import service.SwapiService;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,4 +38,5 @@ public class ResourceFetcher<T> {
     public T getAResource(String resource,TypeReference<T> typeReference){
         return new SwapiService<T>().getServices(resource +"?format=json", typeReference);
     }
+
 }

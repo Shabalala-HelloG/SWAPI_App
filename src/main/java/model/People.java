@@ -3,6 +3,7 @@ package model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
+import presentation.ResourcePrinter;
 import resource.ResourceFetcher;
 
 import java.util.LinkedHashMap;
@@ -88,7 +89,22 @@ public class People implements Model{
                         }).displayName() : "unknown"
         );
 
-
+        details.put("Films",!films.isEmpty()?
+                new ResourcePrinter().<Films>getFromList(films, new TypeReference<Films>() {
+                })
+                :"unknown");
+        details.put("Species",!species.isEmpty()?
+                new ResourcePrinter().<Species>getFromList(species,
+                        new TypeReference<Species>() {
+                        }):"unknown");
+        details.put("Vehicles",!vehicles.isEmpty()?
+                new ResourcePrinter().<Vehicles>getFromList(vehicles,
+                        new TypeReference<Vehicles>() {
+                        }): "unknown");
+        details.put("Starship",!starships.isEmpty()?
+                new ResourcePrinter().<Starships>getFromList(starships, new TypeReference<Starships>() {
+                }):
+                "unknown");
 
         return  details;
     }

@@ -1,6 +1,8 @@
 package presentation;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import model.Model;
+import resource.ResourceFetcher;
 
 import java.util.List;
 import java.util.Map;
@@ -89,6 +91,17 @@ public class ResourcePrinter {
         return list.isEmpty()
                 ? "EMPTY - To fetch resources upon requested"
                 : "POPULATED - Currently in use";
+    }
+    public<T extends Model> String getFromList(List<String> lst, TypeReference<T> typeReference){
+
+        int cnt=1;
+        StringBuilder str= new StringBuilder();
+        for (String url : lst){
+            str.append(cnt).append(". ").append(new ResourceFetcher<T>().getAResource(url,typeReference
+            ).displayName()).append("\n");
+            cnt++;
+        }
+        return str.toString();
     }
 
 

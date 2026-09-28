@@ -3,6 +3,7 @@ package model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
+import presentation.ResourcePrinter;
 import resource.ResourceFetcher;
 
 
@@ -83,6 +84,17 @@ public class Species implements Model {
                         new TypeReference<Planets>() {
                         }).displayName() : "unknown"
         );
+
+        details.put("People",!people.isEmpty()?
+                new ResourcePrinter().<People>getFromList(people,
+                        new TypeReference<People>() {
+                        }):"unknown"
+        );
+
+        details.put("Films",!films.isEmpty()?
+                new ResourcePrinter().<Films>getFromList(films, new TypeReference<Films>() {
+                })
+                :"unknown");
 
         return details;
     }
