@@ -88,7 +88,6 @@ public class Vehicles implements Model {
                 !pilots.isEmpty()
                         ? new Reference<People>(
                         pilots,
-                        People.class,
                         new TypeReference<People>() {}
                 )
                         : "unknown"
@@ -99,7 +98,6 @@ public class Vehicles implements Model {
                 !films.isEmpty()
                         ? new Reference<Films>(
                         films,
-                        Films.class,
                         new TypeReference<Films>() {}
                 )
                         : "unknown"

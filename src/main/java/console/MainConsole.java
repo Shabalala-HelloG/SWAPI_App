@@ -13,7 +13,7 @@ public class MainConsole {
 
     public static void console() {
 
-        //EndPoints
+        //EndPoints I will
         String peopleResource ="https://swapi.dev/api/people/";
         String filmsResource = "https://swapi.dev/api/films/";
         String vehicleResource = "https://swapi.dev/api/vehicles/";

@@ -75,7 +75,6 @@ public class Films implements Model {
                 !characters.isEmpty()
                         ? new Reference<People>(
                         characters,
-                        People.class,
                         new TypeReference<People>() {}
                 )
                         : "Unknown"
@@ -86,7 +85,6 @@ public class Films implements Model {
                 !planets.isEmpty()
                         ? new Reference<Planets>(
                         planets,
-                        Planets.class,
                         new TypeReference<Planets>() {}
                 )
                         : "Unknown"
@@ -97,7 +95,6 @@ public class Films implements Model {
                 !starships.isEmpty()
                         ? new Reference<Starships>(
                         starships,
-                        Starships.class,
                         new TypeReference<Starships>() {}
                 )
                         : "Unknown"
@@ -108,7 +105,6 @@ public class Films implements Model {
                 !vehicles.isEmpty()
                         ? new Reference<Vehicles>(
                         vehicles,
-                        Vehicles.class,
                         new TypeReference<Vehicles>() {}
                 )
                         : "Unknown"
@@ -119,7 +115,6 @@ public class Films implements Model {
                 !species.isEmpty()
                         ? new Reference<Species>(
                         species,
-                        Species.class,
                         new TypeReference<Species>() {}
                 )
                         : "Unknown"

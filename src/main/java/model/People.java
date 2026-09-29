@@ -87,7 +87,6 @@ public class People implements Model{
                 homeworld != null
                         ? new Reference<Planets>(
                         homeworld,
-                        Planets.class,
                         new TypeReference<Planets>() {}
                 )
                         : "unknown"
@@ -98,7 +97,6 @@ public class People implements Model{
                 !films.isEmpty()
                         ? new Reference<Films>(
                         films,
-                        Films.class,
                         new TypeReference<Films>() {}
                 )
                         : "unknown"
@@ -109,7 +107,6 @@ public class People implements Model{
                 !species.isEmpty()
                         ? new Reference<Species>(
                         species,
-                        Species.class,
                         new TypeReference<Species>() {}
                 )
                         : "unknown"
@@ -120,7 +117,6 @@ public class People implements Model{
                 !vehicles.isEmpty()
                         ? new Reference<Vehicles>(
                         vehicles,
-                        Vehicles.class,
                         new TypeReference<Vehicles>() {}
                 )
                         : "unknown"
@@ -131,7 +127,6 @@ public class People implements Model{
                 !starships.isEmpty()
                         ? new Reference<Starships>(
                         starships,
-                        Starships.class,
                         new TypeReference<Starships>() {}
                 )
                         : "unknown"

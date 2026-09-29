@@ -78,7 +78,6 @@ public class Planets implements Model{
                 !residents.isEmpty()
                         ? new Reference<People>(
                         residents,
-                        People.class,
                         new TypeReference<People>() {}
                 )
                         : "unknown"
@@ -89,7 +88,6 @@ public class Planets implements Model{
                 !films.isEmpty()
                         ? new Reference<Films>(
                         films,
-                        Films.class,
                         new TypeReference<Films>() {}
                 )
                         : "unknown"

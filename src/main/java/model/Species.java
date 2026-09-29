@@ -82,7 +82,6 @@ public class Species implements Model {
                 homeworld != null
                         ? new Reference<Planets>(
                         homeworld,
-                        Planets.class,
                         new TypeReference<Planets>() {}
                 )
                         : "unknown"
@@ -93,7 +92,6 @@ public class Species implements Model {
                 !people.isEmpty()
                         ? new Reference<People>(
                         people,
-                        People.class,
                         new TypeReference<People>() {}
                 )
                         : "unknown"
@@ -104,7 +102,6 @@ public class Species implements Model {
                 !films.isEmpty()
                         ? new Reference<Films>(
                         films,
-                        Films.class,
                         new TypeReference<Films>() {}
                 )
                         : "unknown"
