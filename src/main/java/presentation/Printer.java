@@ -2,13 +2,14 @@ package presentation;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import model.Model;
-import resource.ResourceFetcher;
+import model.Reference;
+import service.SwapiService;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ResourcePrinter {
+public class Printer {
     public <T extends Model> void printResources(List<List<T>> allList) {
         //this function used pagination to print the data for each resource per page rather then printing everything at one
         int page = 1;
@@ -20,19 +21,31 @@ public class ResourcePrinter {
 
             for (T element : elementList) {
 
-                for (Map.Entry<String, String> detail :
+                for (Map.Entry<String, Object> detail :
                         element.displayDetails().entrySet()) {
 
-                    String value = detail.getValue();
+                    Object value = detail.getValue();
 
-                    if (value.contains("\n")) {
+                    String stringValue="";
+                    if (value instanceof Reference<?> details) {
+                        stringValue = displayResourceDetails(details);
+
+                    } else {
+
+                        // Regular value
+                        stringValue = value.toString();
+                    }
+
+
+
+                    if (stringValue.contains("\n")) {
                         System.out.println("   " + detail.getKey() + ":");
                         System.out.println(
-                                "      " + value.replace("\n", "\n      ")
+                                "      " + stringValue.replace("\n", "\n      ")
                         );
                     } else {
                         System.out.println(
-                                "   " + detail.getKey() + ": " + value
+                                "   " + detail.getKey() + ": " + stringValue
                         );
                     }
                 }
@@ -92,16 +105,42 @@ public class ResourcePrinter {
                 ? "EMPTY - To fetch resources upon requested"
                 : "POPULATED - Currently in use";
     }
-    public<T extends Model> String getFromList(List<String> lst, TypeReference<T> typeReference){
+    private <T extends Model> String displayResourceDetails(Reference<T> details) {
+        Object url = details.getUrl();
 
-        int cnt=1;
-        StringBuilder str= new StringBuilder();
-        for (String url : lst){
-            str.append(cnt).append(". ").append(new ResourceFetcher<T>().getAResource(url,typeReference
-            ).displayName()).append("\n");
-            cnt++;
+        TypeReference<T> typeReference = details.getTypeReference();
+
+        SwapiService<T> service = new SwapiService<>();
+
+        if (url instanceof List<?> urls) {
+
+            int cnt = 1;
+            StringBuilder str = new StringBuilder();
+
+            for (Object link : urls) {
+
+                if (link instanceof String links) {
+
+                    str.append(cnt)
+                            .append(". ")
+                            .append(service
+                                    .getAResource(links, typeReference)
+                                    .displayName())
+                            .append("\n");
+
+                    cnt++;
+                }
+            }
+
+            return str.toString();
+
+        } else if (url instanceof String singleUrl) {
+            return service
+                    .getAResource(singleUrl, typeReference)
+                    .displayName();
         }
-        return str.toString();
+
+        return "";
     }
 
 

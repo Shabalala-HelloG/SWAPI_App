@@ -2,8 +2,8 @@ package console;
 import com.fasterxml.jackson.core.type.TypeReference;
 import model.*;
 import model.ApiResponse;
-import presentation.ResourceStore;
-import presentation.ResourcePrinter;
+import storage.Store;
+import presentation.Printer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class MainConsole {
         List<List<Species>> speciesList = new ArrayList<>();
         List<List<Planets>> planetsList = new ArrayList<>();
         SwapiConsole console = new SwapiConsole();
-        ResourcePrinter p =new ResourcePrinter();
+        Printer p =new Printer();
 
 
         while(true) {
@@ -60,7 +60,7 @@ public class MainConsole {
                 case 1:
                     System.out.println("\n==========People==========");
                     if (peopleList.isEmpty()) {
-                        peopleList = new ResourceStore<People>().loadResource(peopleResource, peopleType, peopleList);
+                        peopleList = new Store<People>().loadResource(peopleResource, peopleType, peopleList);
 
                     }
                     p.<People>printResources(peopleList);
@@ -70,7 +70,7 @@ public class MainConsole {
                     System.out.println("\n==========Films==========");
 
                     if (filmsList.isEmpty()) {
-                        filmsList = new ResourceStore<Films>().loadResource(filmsResource, filmType, filmsList);
+                        filmsList = new Store<Films>().loadResource(filmsResource, filmType, filmsList);
                     }
                     p.<Films>printResources(filmsList);
 
@@ -79,7 +79,7 @@ public class MainConsole {
                     System.out.println("\n==========Starships==========");
 
                     if (starshipsList.isEmpty()) {
-                        starshipsList = new ResourceStore<Starships>().loadResource(starshipResource, starshipsType, starshipsList);
+                        starshipsList = new Store<Starships>().loadResource(starshipResource, starshipsType, starshipsList);
                     }
                     p.<Starships>printResources(starshipsList);
 
@@ -88,7 +88,7 @@ public class MainConsole {
                     System.out.println("\n==========Vehicles==========");
 
                     if (vehiclesList.isEmpty()) {
-                        vehiclesList = new ResourceStore<Vehicles>().loadResource(vehicleResource, vehiclesType, vehiclesList);
+                        vehiclesList = new Store<Vehicles>().loadResource(vehicleResource, vehiclesType, vehiclesList);
                     }
                     p.<Vehicles>printResources(vehiclesList);
 
@@ -96,7 +96,7 @@ public class MainConsole {
                 case 5:
                     System.out.println("\n==========Species==========");
                     if (speciesList.isEmpty()) {
-                        speciesList = new ResourceStore<Species>().loadResource(speciesResource, speciesType, speciesList);
+                        speciesList = new Store<Species>().loadResource(speciesResource, speciesType, speciesList);
                     }
                     p.<Species>printResources(speciesList);
 
@@ -104,7 +104,7 @@ public class MainConsole {
                 case 6:
                     System.out.println("\n==========Planets==========");
                     if (planetsList.isEmpty()) {
-                        planetsList = new ResourceStore<Planets>().loadResource(planetResource, planetsType, planetsList);
+                        planetsList = new Store<Planets>().loadResource(planetResource, planetsType, planetsList);
                     }
                     p.<Planets>printResources(planetsList);
 

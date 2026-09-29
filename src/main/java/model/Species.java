@@ -3,8 +3,6 @@ package model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
-import presentation.ResourcePrinter;
-import resource.ResourceFetcher;
 
 
 import java.util.LinkedHashMap;
@@ -68,8 +66,8 @@ public class Species implements Model {
     }
 
     @Override
-    public Map<String, String> displayDetails() {
-        Map<String, String> details = new LinkedHashMap<>();
+    public Map<String, Object> displayDetails() {
+        Map<String,Object> details = new LinkedHashMap<>();
         details.put("Name", name);
         details.put("Classification", classification);
         details.put("Designation", designation);
@@ -79,22 +77,38 @@ public class Species implements Model {
         details.put("Eye Colors", eye_colors);
         details.put("Average Lifespan", average_lifespan);
         details.put("Language", language);
-        details.put("Homeworld",
-                homeworld != null ? new ResourceFetcher<Planets>().getAResource(homeworld,
-                        new TypeReference<Planets>() {
-                        }).displayName() : "unknown"
+        details.put(
+                "Homeworld",
+                homeworld != null
+                        ? new Reference<Planets>(
+                        homeworld,
+                        Planets.class,
+                        new TypeReference<Planets>() {}
+                )
+                        : "unknown"
         );
 
-        details.put("People",!people.isEmpty()?
-                new ResourcePrinter().<People>getFromList(people,
-                        new TypeReference<People>() {
-                        }):"unknown"
+        details.put(
+                "People",
+                !people.isEmpty()
+                        ? new Reference<People>(
+                        people,
+                        People.class,
+                        new TypeReference<People>() {}
+                )
+                        : "unknown"
         );
 
-        details.put("Films",!films.isEmpty()?
-                new ResourcePrinter().<Films>getFromList(films, new TypeReference<Films>() {
-                })
-                :"unknown");
+        details.put(
+                "Films",
+                !films.isEmpty()
+                        ? new Reference<Films>(
+                        films,
+                        Films.class,
+                        new TypeReference<Films>() {}
+                )
+                        : "unknown"
+        );
 
         return details;
     }

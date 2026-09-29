@@ -3,7 +3,6 @@ package model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
-import presentation.ResourcePrinter;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -75,8 +74,9 @@ public class Starships implements Model{
     }
 
     @Override
-    public Map<String, String> displayDetails() {
-        Map<String, String> details = new LinkedHashMap<>();
+    public Map<String, Object> displayDetails() {
+        Map<String,Object> details = new LinkedHashMap<>();
+
         details.put("Name", name);
         details.put("Model", model);
         details.put("Manufacturer", manufacturer);
@@ -91,17 +91,27 @@ public class Starships implements Model{
         details.put("MGLT", mglt);
         details.put("Starship Class", starship_class);
 
-        details.put("Pilots",!pilots.isEmpty()?
-                new ResourcePrinter().<People>getFromList(pilots,
-                        new TypeReference<People>() {
-                        }):"unknown"
+        details.put(
+                "Pilots",
+                !pilots.isEmpty()
+                        ? new Reference<People>(
+                        pilots,
+                        People.class,
+                        new TypeReference<People>() {}
+                )
+                        : "unknown"
         );
 
-        details.put("Films",!films.isEmpty()?
-                new ResourcePrinter().<Films>getFromList(films, new TypeReference<Films>() {
-                })
-                :"unknown");
-
+        details.put(
+                "Films",
+                !films.isEmpty()
+                        ? new Reference<Films>(
+                        films,
+                        Films.class,
+                        new TypeReference<Films>() {}
+                )
+                        : "unknown"
+        );
         return  details;
     }
 }

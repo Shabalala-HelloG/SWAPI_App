@@ -3,7 +3,6 @@ package model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
-import presentation.ResourcePrinter;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -62,8 +61,8 @@ public class Planets implements Model{
     }
 
     @Override
-    public Map<String, String> displayDetails() {
-        Map<String,String> details = new LinkedHashMap<>();
+    public Map<String, Object> displayDetails() {
+        Map<String,Object> details = new LinkedHashMap<>();
 
         details.put("Name",name);
         details.put("Population",population);
@@ -74,16 +73,27 @@ public class Planets implements Model{
         details.put("Gravity", gravity);
         details.put("Terrain", terrain);
         details.put("Surface Water", surface_water);
-        details.put("Residents",!residents.isEmpty()?
-                new ResourcePrinter().<People>getFromList(residents,
-                        new TypeReference<People>() {
-                        }):"unknown"
+        details.put(
+                "Residents",
+                !residents.isEmpty()
+                        ? new Reference<People>(
+                        residents,
+                        People.class,
+                        new TypeReference<People>() {}
+                )
+                        : "unknown"
         );
 
-        details.put("Films",!films.isEmpty()?
-                new ResourcePrinter().<Films>getFromList(films, new TypeReference<Films>() {
-                })
-                :"unknown");
+        details.put(
+                "Films",
+                !films.isEmpty()
+                        ? new Reference<Films>(
+                        films,
+                        Films.class,
+                        new TypeReference<Films>() {}
+                )
+                        : "unknown"
+        );
 
         return  details;
     }

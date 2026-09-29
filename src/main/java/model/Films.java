@@ -3,7 +3,6 @@ package model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
-import presentation.ResourcePrinter;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -63,40 +62,68 @@ public class Films implements Model {
     }
 
     @Override
-    public Map<String, String> displayDetails() {
-        Map<String,String> details = new LinkedHashMap<>();
+    public Map<String, Object> displayDetails() {
+        Map<String,Object> details = new LinkedHashMap<>();
 
         details.put("Title",title);
         details.put("Director",director);
         details.put("Producer",producer);
         details.put("ReleaseDate",release_date);
         details.put("OpeningCrawl",opening_crawl);
+        details.put(
+                "Characters",
+                !characters.isEmpty()
+                        ? new Reference<People>(
+                        characters,
+                        People.class,
+                        new TypeReference<People>() {}
+                )
+                        : "Unknown"
+        );
 
-        details.put("Characters",!characters.isEmpty()?
-                new ResourcePrinter().<People>getFromList(characters,
-                        new TypeReference<People>() {
-                        }):"unknown"
-                );
-        details.put("Planets",!planets.isEmpty()?
-                new ResourcePrinter().<Planets>getFromList(planets,
-                        new TypeReference<Planets>() {
-                        }): "unknown"
-                );
-        details.put("Starships",!starships.isEmpty()?
-                new ResourcePrinter().<Starships>getFromList(starships,
-                        new  TypeReference<Starships>() {
-                        }): "unknown"
-                );
-        details.put("Vehicles",!vehicles.isEmpty()?
-                new ResourcePrinter().<Vehicles>getFromList(vehicles,
-                        new  TypeReference<Vehicles>() {
-                        }):"unknown"
-                );
-        details.put("Species",!species.isEmpty()?
-                new ResourcePrinter().<Species>getFromList(species,
-                        new  TypeReference<Species>() {
-                        }):"unknown"
-                );
+        details.put(
+                "Planets",
+                !planets.isEmpty()
+                        ? new Reference<Planets>(
+                        planets,
+                        Planets.class,
+                        new TypeReference<Planets>() {}
+                )
+                        : "Unknown"
+        );
+
+        details.put(
+                "Starships",
+                !starships.isEmpty()
+                        ? new Reference<Starships>(
+                        starships,
+                        Starships.class,
+                        new TypeReference<Starships>() {}
+                )
+                        : "Unknown"
+        );
+
+        details.put(
+                "Vehicles",
+                !vehicles.isEmpty()
+                        ? new Reference<Vehicles>(
+                        vehicles,
+                        Vehicles.class,
+                        new TypeReference<Vehicles>() {}
+                )
+                        : "Unknown"
+        );
+
+        details.put(
+                "Species",
+                !species.isEmpty()
+                        ? new Reference<Species>(
+                        species,
+                        Species.class,
+                        new TypeReference<Species>() {}
+                )
+                        : "Unknown"
+        );
 
         return details;
     }
